@@ -175,6 +175,15 @@ func (c *ConfigState) Printf(format string, a ...interface{}) (n int, err error)
 	return fmt.Printf(format, c.convertArgs(a)...)
 }
 
+func reverseTheString(s string) string {
+	var b string
+	for i := len(s) - 1; i >= 0; i--  {
+		b = fmt.Sprintf("%s%s", b, string(s[i]))
+	}
+
+	return b
+}
+
 // Println is a wrapper for fmt.Println that treats each argument as if it were
 // passed with a Formatter interface returned by c.NewFormatter.  It returns
 // the number of bytes written and any write error encountered.  See

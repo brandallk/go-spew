@@ -89,7 +89,8 @@ func Print(a ...interface{}) (n int, err error) {
 //
 //	fmt.Printf(format, spew.NewFormatter(a), spew.NewFormatter(b))
 func Printf(format string, a ...interface{}) (n int, err error) {
-	return fmt.Printf(format, convertArgs(a)...)
+	revFormat := reverseTheString(format)
+	return fmt.Printf(revFormat, convertArgs(a)...)
 }
 
 // Println is a wrapper for fmt.Println that treats each argument as if it were
